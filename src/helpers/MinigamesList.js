@@ -1,4 +1,4 @@
-import PedroTechSpecial  from "../assets/pedrotechspecial.jpg";
+import HigherOrLowerCover  from "../assets/HigherOrLowerCover.jpg";
 import Hangman from "../assets/HangmanCover.png";
 import TicTacToe from "../assets/TicTacToeCover.jpg";
 
@@ -16,8 +16,9 @@ export const  MinigamesList = [
         page: "/tictactoe"
     },
     {
-        name: "Matching Game",
-        image: PedroTechSpecial,
-        price: "Match the cards with the same symbol on them"
+        name: "Higher or Lower",
+        image: HigherOrLowerCover,
+        price: "Guess if the card pulled is higher or lower than your card",
+        page: "/highorlow"
     }
 ]

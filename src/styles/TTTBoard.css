@@ -1,0 +1,34 @@
+.row {
+  display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.winTTT{
+  outline-style: solid;
+  outline-width: 20px;
+  outline-color: #b5ffa8;
+  height: 400px;
+  width: 500px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+.loseTTT{
+  outline-style: solid;
+  outline-width: 20px;
+  outline-color: #ffa8bb;
+  height: 400px;
+  width: 500px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 50px;
+}

@@ -1,13 +1,14 @@
-import React from 'react'
-import PizzaLeft from '../assets/pizzaLeft.jpg'
+import React, {useState} from 'react'
+import ContactUs from '../assets/ContactUs.png'
 import '../styles/Contact.css'
 
 function Contact() {
+
   return (
     <div className='contact'>
       <div 
         className='leftSide' 
-        style={{ backgroundImage: `url(${PizzaLeft})` }}
+        style={{ backgroundImage: `url(${ContactUs})` }}
         >
       </div>
       <div className='rightSide'>
@@ -18,11 +19,11 @@ function Contact() {
             <label htmlFor="email">Email</label>
             <input name="email" placeholder="Enter email..." type="email"/>
             <label htmlFor="message">Message</label>
-            <textarea rows="6" 
+            <input rows="6" 
                 placeholder="Enter message..." 
                 name="message" 
                 required
-            > </textarea>
+            /> 
             <button type="submit">
                 Send Message
             </button>

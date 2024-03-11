@@ -5,7 +5,7 @@ import "../styles/Minigames.css"
 
 function Minigames() {
   return (
-    <div className='menu'>
+    <div className='minigamesMenu'>
       <h1 className='menuTitle'>Minigames</h1>
       <div className='minigamesList'>
         {MinigamesList.map((minigameCard, key) => {

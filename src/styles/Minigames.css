@@ -1,4 +1,4 @@
-.menu {
+.minigamesMenu {
     width: 100%;
     height: auto;
     display: flex;
@@ -6,7 +6,7 @@
     align-items: center;
     flex-direction: column;
   }
-  .menu .menuTitle {
+  .minigamesMenu .menuTitle {
     font-family: cursive;
     font-size: 60px;
   }

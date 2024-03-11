@@ -17,17 +17,13 @@ function Hangman() {
   const [correctLetters, setCorrectLetters] = useState(""); //used to choose which letters to reveal
   const [guess, setGuess] = useState(''); //holds guess when user clicks submit
 
-  console.log(word);
-
   const handleChange = event => {
     setGuess(event.target.value);
-
-    console.log('value is:', event.target.value);
   };
 
   function replace(){
       let temp = word.split('').map(letter => 
-        (letter === guess || correctLetters.includes(letter)) ? letter : "_").join(" ");
+        (letter === guess.toUpperCase() || correctLetters.includes(letter)) ? letter : "_").join(" ");
 
     setMaskedWord(temp);
   }

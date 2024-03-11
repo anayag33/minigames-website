@@ -1,0 +1,63 @@
+.menu {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .menu .menuTitle {
+    font-family: cursive;
+    font-size: 60px;
+  }
+
+  .buttonHL {
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    justify-content: center;
+    background-color: #121619;
+    height: 50px;
+    width: 180px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    margin: 20px;
+  }
+
+  .win{
+    outline-style: solid;
+    outline-width: 10px;
+    outline-color: #b5ffa8;
+    height: 100px;
+    width: 500px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 50px;
+  }
+
+  .lose{
+    outline-style: solid;
+    outline-width: 10px;
+    outline-color: #ffa8bb;
+    height: 100px;
+    width: 500px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 50px;
+  }
+
+  .greyBox{
+    text-align: center;
+    height:125px;
+    width: 400px;
+    background-color: lightgray;
+    border-radius: 10px;
+  }

@@ -1,0 +1,21 @@
+.tttmenu {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 50px;
+  }
+  .tttmenu .menuTitle {
+    font-family: cursive;
+    font-size: 60px;
+  }
+  
+  .minigamesList {
+    width: 70vw;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+  }

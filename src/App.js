@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Hangman from "./pages/Hangman";
 import TicTacToe from "./pages/TicTacToe";
+import HighOrLow from './pages/HighOrLow';
 import { BrowserRouter as Router, Route, Routes}  from "react-router-dom";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/contact" element={<Contact/>} />
           <Route path="/hangman" element={<Hangman/>} />
           <Route path="/tictactoe" element={<TicTacToe/>} />
+          <Route path="/highorlow" element={<HighOrLow/>} />
         </Routes>
         <Footer />
       </Router>

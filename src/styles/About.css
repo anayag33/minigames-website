@@ -1,13 +1,13 @@
 .about {
     width: 100%;
-    height: 90vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
   }
   
   .aboutTop {
     width: 100%;
-    height: 45%;
+    height: 40%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -17,7 +17,7 @@
   .aboutBottom {
     display: flex;
     flex-direction: column;
-    height: 55%;
+    height: 60%;
     align-items: center;
     margin: 50px;
     text-align: center;
@@ -36,3 +36,23 @@
     justify-content: center;
     transform: translateY(-40px);
   }
+
+  .aboutText{
+    margin-right: 100px;
+    margin-right: 100px;
+  }
+
+  .box{
+    border-style: none;
+    border-radius: 10px;
+    background-color: #a6d9f5;
+    height: 250px;
+    width: 300px;
+    padding: 20px;
+    margin: 20px;
+  }
+
+  .horizontal{
+    display: flex;
+    flex-direction: row;
+}

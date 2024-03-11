@@ -1,0 +1,33 @@
+.card{
+    height: 200px;
+    width: 150px;
+    background-color: white;
+    margin-top: 10px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    border: solid;
+    border-color: grey;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.numberB{
+    font-size: 50px;
+    color: black;
+}
+
+.numberR{
+    font-size: 50px;
+    color: red;
+}
+
+.image{
+    height: 50px
+}
+
+.row {
+    display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+  }
