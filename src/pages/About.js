@@ -1,5 +1,5 @@
 import React from 'react'
-import Controllers from '../assets/AboutUs.png'
+import Controllers from '../assets/HomeBackground3.jpg'
 import '../styles/About.css'
 
 function About() {
@@ -33,7 +33,10 @@ function About() {
           <div>
             <h3>Tic Tac Toe</h3>
               <div className='box'>
-                <p>In Tic Tac Toe, you will be playing with 
+                <p>In Tic Tac Toe, you will be playing against the computer to win. 
+                  The goal of this game is to get 3 X's in a row before the computer 
+                  gets 3 O's in a row. You can also get a tie. Good luck against the 
+                  computer!
                 </p>
               </div>
           </div>

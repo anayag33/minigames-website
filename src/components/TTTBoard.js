@@ -3,355 +3,261 @@ import '../styles/TTTBoard.css';
 import TTTSquare from './TTTSquare';
 import { Link } from "react-router-dom";
 
-
-
 function TTTBoard() {
 
+  const [array, setArray] =useState(['', '', '', '', '', '', '', '', '']);
   const [currentValue, setCurrentValue] = useState('X')
-  const [one, setOne] = useState('');
-  const [two, setTwo] = useState('');
-  const [three, setThree] = useState('');
-  const [four, setFour] = useState('');
-  const [five, setFive] = useState('');
-  const [six, setSix] = useState('');
-  const [seven, setSeven] = useState('');
-  const [eight, setEight] = useState('');
-  const [nine, setNine] = useState('');
-  const [count, setCount] = useState(0);
 
   const [over, setOver] = useState(false);
   const [winner, setWinner] = useState("T");
-  const [filled, setFilled] = useState("");
-
-  useEffect(() => {
-    if (currentValue==='O') {
-      setTimeout(() => {
-            ComputerTurn(); // Call ComputerTurn after a delay
-          }, 1000);
-    }
-  }, [filled]);
-
-  // useEffect(() => {
-  //   if (filled.length > 0) {
-  //     console.log("Filled updated:", filled);
-  //   }
-  // }, [filled]);
-
-  // useEffect(() => {
-  //   console.log("over:", over);
-  // }, [over]);
-
-  // useEffect(() => {
-  //   console.log("winner:", winner);
-  // }, [winner]);
 
   function ComputerTurn(){
-    console.log("Enter Computer Turn");
-    // console.log("HELLO");
-    let index = (Math.floor(Math.random()*(9-1)+1)).toString();
-    // console.log("index B " + index);
-    // console.log(filled);
-    while(filled.includes(index)){
-      index = (Math.floor(Math.random()*(9-1)+1)).toString();
-      // console.log("index I" + index);
-      // console.log(filled);
-    }
-    // console.log("index A" + index);
-    // console.log(filled);
-    if(index==="1"){
-      setOne('O');
-      setCurrentValue('X');
-    }
-    else if(index==="2"){
-      setTwo('O');
-      setCurrentValue('X');
-    }
-    else if(index==="3"){
-      setThree('O');
-      setCurrentValue('X');
-    }
-    else if(index==="4"){
-      setFour('O');
-      setCurrentValue('X');
-    }
-    else if(index==="5"){
-      setFive('O');
-      setCurrentValue('X');
-    }
-    else if(index==="6"){
-      setSix('O');
-      setCurrentValue('X');
-    }
-    else if(index==="7"){
-      setSeven('O');
-      setCurrentValue('X');
-    }
-    else if(index==="8"){
-      setEight('O');
-      setCurrentValue('X');
-    }
-    else if(index==="9"){
-      setNine('O');
-      setCurrentValue('X');
+    let index = (Math.floor(Math.random()*(9-1)+1));
+
+    while(array[index-1] != '' && over===false){
+      index = (Math.floor(Math.random()*(9-1)+1));
     }
 
-    setFilled(prevFilled => prevFilled.concat(" ", index));
-    setCount(count+1);
+    if(index===1){
+      array[0] = 'O';
+      setCurrentValue('X');
+    }
+    else if(index===2){
+      array[1] = 'O';
+      setCurrentValue('X');
+    }
+    else if(index===3){
+      array[2] = 'O';
+      setCurrentValue('X');
+    }
+    else if(index===4){
+      array[3] = 'O';
+      setCurrentValue('X');
+    }
+    else if(index===5){
+      array[4] = 'O';
+      setCurrentValue('X');
+    }
+    else if(index===6){
+      array[5] = 'O';
+      setCurrentValue('X');
+    }
+    else if(index===7){
+      array[6] = 'O';
+      setCurrentValue('X');
+    }
+    else if(index===8){
+      array[7] = 'O';
+      setCurrentValue('X');
+    }
+    else if(index===9){
+      array[8] = 'O';
+      setCurrentValue('X');
+    }
+    checkOver();
   }
 
   function checkOver() {
-    console.log("Enter check Over");
     // Check rows
-    if ((one === two && one === three && one !== '')) {
+    if ((array[0] === array[1] && array[0] === array[2] && array[0] !== '')) {
       setOver(true);
-      setWinner(winner => {
-        if (winner !== 'T') {
-          return winner; // If winner is already set, don't update it
-        } else {
-          return one; // Set winner only if it's not already set
-        }
-      });
-
-      // setTimeout(() => {}, 2000);
+      if (array[0]==='X'){
+        setWinner('X');
+      }
+      else if (array[0] ==='O'){
+        setWinner('O');
+      }
     }
-    else if ((four === five && four === six && four !== '')) {
+    else if ((array[3] === array[4] && array[3] === array[5] && array[3] !== '')) {
       setOver(true);
-      setWinner(winner => {
-        if (winner !== 'T') {
-          return winner; // If winner is already set, don't update it
-        } else {
-          return four; // Set winner only if it's not already set
-        }
-      });
-      // setTimeout(() => {}, 2000);
+      if (array[3]==='X'){
+        setWinner('X');
+      }
+      else if (array[3] ==='O'){
+        setWinner('O');
+      }
     }
-    else if ((seven === eight && seven === nine && seven !== '')) {
+    else if ((array[6] === array[7] && array[6] === array[8] && array[6] !== '')) {
       setOver(true);
-      setWinner(winner => {
-        if (winner !== 'T') {
-          return winner; // If winner is already set, don't update it
-        } else {
-          return seven; // Set winner only if it's not already set
-        }
-      });
-      // setTimeout(() => {}, 2000);
+      if (array[6]==='X'){
+        setWinner('X');
+      }
+      else if (array[6] ==='O'){
+        setWinner('O');
+      }
     }
   
     // Check columns
-    else if ((one === four && one === seven && one !== '')) {
+    else if ((array[0] === array[3] && array[0] === array[6] && array[0] !== '')) {
       setOver(true);
-      setWinner(winner => {
-        if (winner !== 'T') {
-          return winner; // If winner is already set, don't update it
-        } else {
-          return one; // Set winner only if it's not already set
-        }
-      });
-      // setTimeout(() => {}, 2000);
+      if (array[0]==='X'){
+        setWinner('X');
+      }
+      else if (array[0] ==='O'){
+        setWinner('O');
+      }
     }
-    else if ((two === five && two === eight && two !== '')) {
+    else if ((array[1] === array[4] && array[1] === array[7] && array[1] !== '')) {
       setOver(true);
-      setWinner(winner => {
-        if (winner !== 'T') {
-          return winner; // If winner is already set, don't update it
-        } else {
-          return two; // Set winner only if it's not already set
-        }
-      });
-      // setTimeout(() => {}, 2000);
+      if (array[1]==='X'){
+        setWinner('X');
+      }
+      else if (array[1] ==='O'){
+        setWinner('O');
+      }
     }
-    else if ((three === six && three === nine && three !== '')) {
+    else if ((array[2] === array[5] && array[2] === array[8] && array[2] !== '')) {
       setOver(true);
-      setWinner(winner => {
-        if (winner !== 'T') {
-          return winner; // If winner is already set, don't update it
-        } else {
-          return three; // Set winner only if it's not already set
-        }
-      });
-      // setTimeout(() => {}, 2000);
+      if (array[2]==='X'){
+        setWinner('X');
+      }
+      else if (array[2] ==='O'){
+        setWinner('O');
+      }
     }
   
     // Check diagonals
-    else if ((one === five && one === nine && one !== '') ||
-        (three === five && three === seven && three !== '')) {
+    else if ((array[0] === array[4] && array[0] === array[8] && array[0] !== '') ||
+        (array[2] === array[4] && array[2] === array[6] && array[2] !== '')) {
       setOver(true);
-      setWinner(winner => {
-        if (winner !== 'T') {
-          return winner; // If winner is already set, don't update it
-        } else {
-          return five; // Set winner only if it's not already set
-        }
-      });
-      // setTimeout(() => {}, 2000);
+      if (array[4] ==='X'){
+        setWinner('X');
+      }
+      else if (array[4] ==='O'){
+        setWinner('O');
+      }
     }
   
     // Check if all cells are filled (tie)
-    else if (one !== '' && two !== '' && three !== '' &&
-        four !== '' && five !== '' && six !== '' &&
-        seven !== '' && eight !== '' && nine !== '') {
+    else if (array[0] !== '' && array[1] !== '' && array[2] !== '' &&
+    array[3] !== '' && array[4] !== '' && array[5] !== '' &&
+    array[6] !== '' && array[7] !== '' && array[8] !== '') {
       setOver(true);
     }
   }
 
   function handleClick1(){
-    console.log("Enter Handle Click 1");
-    if (currentValue=="X" && one ==''){
-      setOne("X");
-      setFilled(filled => filled.concat(" ", "1"));
-      setCount(count+1);
-      console.log("filled " +filled);
+    if (currentValue=="X" && array[0] ==''){
+      array[0] = 'X';
       setCurrentValue('O');
       checkOver();
-      // if (over === false){
-      //   setTimeout(() => {
-      //     ComputerTurn(); // Call ComputerTurn after a delay
-      //   }, 2000);
-      // }
+      if (array.indexOf('') != -1){
+        setTimeout(() => {
+          ComputerTurn(); // Call ComputerTurn after a delay
+        }, 1000);
+      }
     }
   }
 
   function handleClick2(){
-    console.log("Enter Handle Click 2");
-    if (currentValue=="X" && two ==''){
-      setTwo("X");
-      setFilled(filled => filled.concat(" ", "2"));
-      setCount(count+1);
-      console.log("filled " +filled);
+    if (currentValue=="X" && array[1] ==''){
+      array[1] = 'X';
       setCurrentValue('O');
       checkOver();
-      // if (over === false){
-      //   setTimeout(() => {
-      //     ComputerTurn(); // Call ComputerTurn after a delay
-      //   }, 1000);
-      // }
+      if (array.indexOf('') != -1){
+        setTimeout(() => {
+          ComputerTurn(); // Call ComputerTurn after a delay
+        }, 1000);
+      }
     }
   }
 
   function handleClick3(){
-    console.log("Enter Handle Click 3");
-    if (currentValue=="X" && three ==''){
-      setThree("X");
-      setFilled(filled => filled.concat(" ", "3"));
-      setCount(count+1);
-      console.log("filled " +filled);
+    if (currentValue=="X" && array[2] ==''){
+      array[2] = 'X';
       setCurrentValue('O');
       checkOver();
-      // if (over === false){
-      //   setTimeout(() => {
-      //     ComputerTurn(); // Call ComputerTurn after a delay
-      //   }, 1000);
-      // }
+      if (array.indexOf('') != -1){
+        setTimeout(() => {
+          ComputerTurn(); // Call ComputerTurn after a delay
+        }, 1000);
+      }
     }
   }
 
   function handleClick4(){
-    console.log("Enter Handle Click 4");
-    if (currentValue=="X" && four ==''){
-      setFour("X");
-      setFilled(filled => filled.concat(" ", "4"));
-      setCount(count+1);
-      console.log("filled " +filled);
+    if (currentValue=="X" && array[3] ==''){
+      array[3] = 'X';
       setCurrentValue('O');
       checkOver();
-      // if (over === false){
-      //   setTimeout(() => {
-      //     ComputerTurn(); // Call ComputerTurn after a delay
-      //   }, 1000);
-      // }
+      if (array.indexOf('') != -1){
+        setTimeout(() => {
+          ComputerTurn(); // Call ComputerTurn after a delay
+        }, 1000);
+      }
     }
   }
 
   function handleClick5(){
-    console.log("Enter Handle Click 5");
-    if (currentValue=="X" && five ==''){
-      setFive("X");
-      setFilled(filled => filled.concat(" ", "5"));
-      setCount(count+1);
-      console.log("filled " +filled);
+    if (currentValue=="X" && array[4] ==''){
+      array[4] = 'X';
       setCurrentValue('O');
       checkOver();
-      // if (over === false){
-      //   setTimeout(() => {
-      //     ComputerTurn(); // Call ComputerTurn after a delay
-      //   }, 1000);
-      // }
+      if (array.indexOf('') != -1){
+        setTimeout(() => {
+          ComputerTurn(); // Call ComputerTurn after a delay
+        }, 1000);
+      }
     }
   }
 
   function handleClick6(){
-    console.log("Enter Handle Click 6");
-    if (currentValue=="X" && six ==''){
-      setSix("X");
-      setFilled(filled => filled.concat(" ", "6"));
-      setCount(count+1);
-      console.log("filled " +filled);
+    if (currentValue=="X" && array[5] ==''){
+      array[5] = 'X';
       setCurrentValue('O');
       checkOver();
-      // if (over === false){
-      //   setTimeout(() => {
-      //     ComputerTurn(); // Call ComputerTurn after a delay
-      //   }, 1000);
-      // }
+      if (array.indexOf('') != -1){
+        setTimeout(() => {
+          ComputerTurn(); // Call ComputerTurn after a delay
+        }, 1000);
+      }
     }
   }
 
   function handleClick7(){
-    console.log("Enter Handle Click 7");
-    if (currentValue=="X" && seven ==''){
-      setSeven("X");
-      setFilled(filled => filled.concat(" ", "7"));
-      setCount(count+1);
-      console.log("filled " +filled);
+    if (currentValue=="X" && array[6] ==''){
+      array[6] = 'X';
       setCurrentValue('O');
       checkOver();
-      // if (over === false){
-      //   setTimeout(() => {
-      //     ComputerTurn(); // Call ComputerTurn after a delay
-      //   }, 1000);
-      // }
+      if (array.indexOf('') != -1){
+        setTimeout(() => {
+          ComputerTurn(); // Call ComputerTurn after a delay
+        }, 1000);
+      }
     }
   }
 
   function handleClick8(){
-    console.log("Enter Handle Click 8");
-    if (currentValue=="X" && eight ==''){
-      setEight("X");
-      setFilled(filled => filled.concat(" ", "8"));
-      setCount(count+1);
-      console.log("filled " +filled);
+    if (currentValue=="X" && array[7] ==''){
+      array[7] = 'X';
       setCurrentValue('O');
       checkOver();
-      // if (over === false){
-      //   setTimeout(() => {
-      //     ComputerTurn(); // Call ComputerTurn after a delay
-      //   }, 1000);
-      // }
+      if (array.indexOf('') != -1){
+        setTimeout(() => {
+          ComputerTurn(); // Call ComputerTurn after a delay
+        }, 1000);
+      }
     }
   }
 
   function handleClick9(){
-    console.log("Enter Handle Click 9");
-    if (currentValue=="X" && nine ==''){
-      setNine("X");
-      setFilled(filled => filled.concat(" ", "9"));
-      setCount(count+1);
-      console.log("filled " +filled);
+    if (currentValue=="X" && array[8] ==''){
+      array[8] = 'X';
       setCurrentValue('O');
       checkOver();
-      // if (over === false){
-      //   setTimeout(() => {
-      //     ComputerTurn(); // Call ComputerTurn after a delay
-      //   }, 1000);
-      // }
+      if (array.indexOf('') != -1){
+        setTimeout(() => {
+          ComputerTurn(); // Call ComputerTurn after a delay
+        }, 1000);
+      }
     }
   }
 
   return (
     <div className='board'>
-      {over || count===9 ? (
+      {over ? (
         (winner==="T" ? (
-          <div className='lose'>
+          <div className='loseTTT'>
             <h1>THE GAME WAS A TIE</h1>
             <Link to="/tictactoe" reloadDocument >
               <button className='button'> PLAY AGAIN </button>
@@ -386,19 +292,19 @@ function TTTBoard() {
       ) : (
         <>
           <div className='row'>
-            <TTTSquare onClick={handleClick1} value={one}/>
-            <TTTSquare onClick={handleClick2} value={two}/>
-            <TTTSquare onClick={handleClick3} value={three}/>
+            <TTTSquare onClick={handleClick1} value={array[0]}/>
+            <TTTSquare onClick={handleClick2} value={array[1]}/>
+            <TTTSquare onClick={handleClick3} value={array[2]}/>
           </div>
           <div className='row'>
-            <TTTSquare onClick={handleClick4} value={four}/>
-            <TTTSquare onClick={handleClick5} value={five}/>
-            <TTTSquare onClick={handleClick6} value={six}/>
+            <TTTSquare onClick={handleClick4} value={array[3]}/>
+            <TTTSquare onClick={handleClick5} value={array[4]}/>
+            <TTTSquare onClick={handleClick6} value={array[5]}/>
           </div>
           <div className='row'>
-            <TTTSquare onClick={handleClick7} value={seven}/>
-            <TTTSquare onClick={handleClick8} value={eight}/>
-            <TTTSquare onClick={handleClick9} value={nine}/>
+            <TTTSquare onClick={handleClick7} value={array[6]}/>
+            <TTTSquare onClick={handleClick8} value={array[7]}/>
+            <TTTSquare onClick={handleClick9} value={array[8]}/>
           </div>
         </>
       )}

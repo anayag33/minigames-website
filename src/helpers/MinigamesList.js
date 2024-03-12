@@ -1,6 +1,6 @@
-import HigherOrLowerCover  from "../assets/HigherOrLowerCover.jpg";
+import HigherOrLowerCover  from "../assets/HiLoCover.png";
 import Hangman from "../assets/HangmanCover.png";
-import TicTacToe from "../assets/TicTacToeCover.jpg";
+import TicTacToe from "../assets/TicTacToeCover.png";
 
 export const  MinigamesList = [
     {
