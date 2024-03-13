@@ -14,7 +14,7 @@ function Minigames() {
                     key={key}
                     image={minigameCard.image} 
                     name={minigameCard.name} 
-                    price={minigameCard.price}
+                    description={minigameCard.description}
                     page={minigameCard.page}
                 />
             );
