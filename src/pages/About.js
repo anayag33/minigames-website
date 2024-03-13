@@ -1,5 +1,5 @@
 import React from 'react'
-import Controllers from '../assets/HomeBackground3.jpg'
+import Controllers from '../assets/AboutUs.jpg'
 import '../styles/About.css'
 
 function About() {

@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import ContactUs from '../assets/ContactUs.png'
 import '../styles/Contact.css'
+import { Link } from "react-router-dom";
+
 
 function Contact() {
 
@@ -13,7 +15,7 @@ function Contact() {
       </div>
       <div className='rightSide'>
         <h1> Contact Us </h1>
-        <form id="contactForm" method="POST">
+        <form id="contactForm">
             <label htmlFor="name">Full Name</label>
             <input name="name" placeholder="Enter full name..." type="text"/>
             <label htmlFor="email">Email</label>
@@ -24,9 +26,11 @@ function Contact() {
                 name="message" 
                 required
             /> 
-            <button type="submit">
+            <Link to={'/contact'} reloadDocument>
+              <button>
                 Send Message
-            </button>
+              </button>
+            </Link>
         </form>
       </div>
     </div>

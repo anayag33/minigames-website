@@ -52,7 +52,7 @@ function Hangman() {
       <h1 className='menuTitle'>Hangman</h1>
       {(mistakes === 6 || !maskedWord.includes('_')) ? (
         (maskedWord.includes('_')) ? (
-          <div className='lose'>
+          <div className='loseTTT'>
             <h1>YOU LOSE</h1>
             <h1>The word was {word}</h1>
             <Link to="/hangman" reloadDocument >
@@ -63,7 +63,7 @@ function Hangman() {
             </Link>
           </div>
         ) : (
-          <div className='win'>
+          <div className='winTTT'>
             <h1>YOU WIN!</h1>
             <h1>The word was {word}</h1>
             <Link to="/hangman" reloadDocument >
