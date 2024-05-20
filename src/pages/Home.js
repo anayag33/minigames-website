@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import BannerImage from '../assets/HomeBackground.jpg'
 import '../styles/Home.css'
 
-//HELLO
-
 function Home() {
   return (
     <div className='home' style={{ backgroundImage: `url(${BannerImage})` }}>
